@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯信息手册 · 赛事查询与对照</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #f9f6f1;
+      font-family: 'Segoe UI', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      color: #2c2b28;
+      padding: 2rem 1rem;
+    }
+    .wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fefcf8;
+      border-radius: 28px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+      padding: 2.5rem 2rem 3rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      border-left: 6px solid #d9b382;
+      padding-left: 1rem;
+      margin-top: 0.4rem;
+      margin-bottom: 1.8rem;
+      color: #353330;
+    }
+    .subhead {
+      font-size: 1rem;
+      color: #7a776f;
+      margin-top: -1.2rem;
+      margin-bottom: 2.2rem;
+      padding-left: 1.6rem;
+    }
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: #3f3c36;
+      margin: 2.6rem 0 1rem 0;
+      border-bottom: 1px solid #eae4db;
+      padding-bottom: 0.35rem;
+    }
+    p {
+      margin-bottom: 1.3rem;
+      text-align: justify;
+    }
+    .intro-card {
+      background: #f2ede6;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      margin: 1.8rem 0 2rem 0;
+      border-left: 5px solid #b5977a;
+    }
+    .intro-card p:last-child {
+      margin-bottom: 0;
+    }
+    .insight-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1.5rem 0 2rem 0;
+    }
+    .insight-item {
+      background: #f7f3ec;
+      border-radius: 16px;
+      flex: 1 1 200px;
+      padding: 1.2rem 1.4rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid #ece4d9;
+    }
+    .insight-item strong {
+      display: block;
+      font-weight: 600;
+      color: #5b4f3e;
+      margin-bottom: 0.3rem;
+      font-size: 1.05rem;
+    }
+    .insight-item span {
+      font-size: 0.95rem;
+      color: #4d4940;
+    }
+    .callout {
+      background: #f1ede5;
+      border-radius: 20px;
+      padding: 1.4rem 1.8rem;
+      margin: 1.8rem 0 2.2rem 0;
+      border: 1px solid #ddd6ca;
+      position: relative;
+    }
+    .callout::before {
+      content: "📋";
+      font-size: 1.3rem;
+      position: absolute;
+      left: -0.6rem;
+      top: -0.6rem;
+      background: #fefcf8;
+      padding: 0 0.3rem;
+      line-height: 1;
+    }
+    .callout p {
+      margin-bottom: 0.7rem;
+    }
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+    .faq-mini {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 1.8rem;
+      margin: 1.8rem 0 2rem 0;
+    }
+    @media (max-width: 540px) {
+      .faq-mini {
+        grid-template-columns: 1fr;
+      }
+    }
+    .faq-item {
+      break-inside: avoid;
+    }
+    .faq-item .q {
+      font-weight: 500;
+      color: #4a4238;
+      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+    }
+    .faq-item .a {
+      font-size: 0.9rem;
+      color: #5e5950;
+    }
+    .link-sentence {
+      background: #eae3d8;
+      padding: 1.2rem 1.8rem;
+      border-radius: 40px;
+      margin: 2.4rem 0 1rem 0;
+      display: inline-block;
+      font-size: 1rem;
+    }
+    .link-sentence a {
+      color: #6f4f2e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px dashed #b5977a;
+      transition: border-bottom 0.2s;
+    }
+    .link-sentence a:hover {
+      border-bottom: 2px solid #6f4f2e;
+    }
+    .footnote {
+      margin-top: 2.8rem;
+      font-size: 0.85rem;
+      color: #8c877d;
+      border-top: 1px solid #e1d9ce;
+      padding-top: 1.5rem;
+      text-align: center;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ded7cb;
+      margin: 1.8rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>世界杯赛事档案 · 对照与延伸</h1>
+  <div class="subhead">一份平实的查询手册，供日常翻阅与比照</div>
+
+  <p>每届世界杯都会留下一组庞大的数据断面：赛程、分组、射手、历史交锋……对于关注比赛的旁观者或资深爱好者，将这些信息整理成可翻阅、可对照的文本，本身就是一种延续体验的方式。下面这份摘要并非官方公告，而是基于公开资料所做的归纳与梳理，方便你在讨论、写作或单纯回顾时快速定位。</p>
+
+  <div class="intro-card">
+    <p><strong>关于本页</strong> · 这里不制造预测或悬念，只把已经发生或已经确定的赛事信息（赛制、场馆、晋级规则、历届冠军等）按逻辑归拢。你可以将它视为一张参考卡片，放在手边或书签里，需要时直接调取。所有内容均来自公开可查的赛事文档与历史记录。</p>
+  </div>
+
+  <h2>核心信息摘要</h2>
+  <p>2026年世界杯将由美国、加拿大、墨西哥联合主办，赛制首次扩军至48支球队，小组赛分为16个小组，每组3队，前两名晋级淘汰赛。比赛总场次将达到80场，横跨16个主办城市。对于想快速了解框架的读者，以下条目概括了最基本的参数：</p>
+  
+  <div class="insight-grid">
+    <div class="insight-item">
+      <strong>参赛队</strong>
+      <span>48支（扩军后）<br>6个席位分配</span>
+    </div>
+    <div class="insight-item">
+      <strong>比赛场次</strong>
+      <span>80场<br>小组赛+淘汰赛</span>
+    </div>
+    <div class="insight-item">
+      <strong>主办城市</strong>
+      <span>16座<br>分布于北美三国</span>
+    </div>
+    <div class="insight-item">
+      <strong>赛期</strong>
+      <span>约40天<br>6月至7月</span>
+    </div>
+  </div>
+
+  <h2>使用建议 · 如何利用这份档案</h2>
+  <p>如果你正在撰写赛事前瞻、准备观赛对照表，或者只是想扩充自己对历届赛事的了解，可以把下面的内容当作一个起点。我们建议：</p>
+  <ul style="margin-left:1.8rem; margin-bottom:1.6rem; color:#3f3c36;">
+    <li>先翻阅<strong>摘要板块</strong>，确认本届赛制与关键节点；</li>
+    <li>对照<strong>亮点与变化</strong>，了解扩军、赛程分布等调整带来的影响；</li>
+    <li>若有疑问，可参考<strong>常见问题</strong>部分，其中收录了关于东道主、名额分配、比赛用球等非技术类问题；</li>
+    <li>想要直接获取完整赛程或历史数据，可以前往 <a href="https://app-chinese-fifa2026.com">世界杯</a> 页面，那里整合了更细致的赛事列表与统计。</li>
+  </ul>
+
+  <div class="callout">
+    <p><strong>📌 关于延伸阅读</strong></p>
+    <p>很多读者在对比不同届次的世界杯时，会关注「主办国表现」「场均进球数」「黑马球队」等议题。我们建议在查阅完本页的基础参数后，利用页尾链接或站内搜索进一步筛选。所有数据均以官方公布为准，这里仅做整理与对照。</p>
+  </div>
+
+  <h2>亮点与结构变化</h2>
+  <p>48队赛制是本届最显著的变化。小组赛从8个小组（每组4队）变为16个小组（每组3队），这意味着每支球队至少踢2场小组赛，且每组的出线竞争更为直接——没有平局加赛，积分、净胜球、进球数依次排定。淘汰赛阶段新增一轮1/16决赛，从32强开始单场决胜。</p>
+  <p>此外，三个东道主国家将各自承担部分比赛，其中美国拥有最多场馆（11座），墨西哥和加拿大分别有3座和2座。这种分布也影响了队伍的训练营选址和后勤规划。对于希望深入了解赛程逻辑的读者，可以结合历史数据对比扩军前后的小组出线概率与比赛节奏差异。</p>
+
+  <h2>常见问题摘要</h2>
+  <div class="faq-mini">
+    <div class="faq-item">
+      <div class="q">· 2026世界杯的决赛在哪座球场？</div>
+      <div class="a">目前官方尚未最终公布，但纽约/新泽西的大都会球场、达拉斯的AT&T球场等均在候选之列。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">· 中国队是否有资格参加？</div>
+      <div class="a">亚洲区有8.5个席位（含附加赛），中国队需通过预选赛争取。目前预选赛正在进行中。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">· 扩军后小组赛每队踢几场？</div>
+      <div class="a">每组3队，每队踢2场小组赛，前两名晋级。平局需看胜负关系或净胜球。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">· 如何获取最新赛程？</div>
+      <div class="a">官方通常会提前一年公布完整赛程。你也可以在 <a href="https://app-chinese-fifa2026.com">世界杯</a> 页面查看已更新的对阵表。</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="link-sentence">
+    如果你需要更详细的赛事数据、历史纪录或实时更新，可以随时查阅 <a href="https://app-chinese-fifa2026.com">世界杯</a> 页面，那里整理了更完整的条目。
+  </div>
+
+  <div class="footnote">
+    本页内容仅供信息参考，不构成任何投注或决策建议 · 数据截止至公开资料整理日期<br>
+    页面由独立爱好者维护，与官方机构无关
+  </div>
+</div>
+</body>
+</html>
